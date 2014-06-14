@@ -4,10 +4,7 @@ def f(x):
     return 1.0/(1+16*x*x)
 def gen_l(n):
     x = [x*10.0/n-5 for x in range(n+1)]
-    y = map(f,x)
-    def gen_lk(a,k):
-        return lambda x:reduce(mul,[x-i for i in a if i!=a[k]])/reduce(mul,[a[k]-i for i in a if i!=a[k]])
-    return lambda xx: sum([y[k]*\
+    return lambda xx: sum([f(x[k])*\
             reduce(mul,[xx-i for i in x if i!=x[k]])/reduce(mul,[x[k]-i for i in x if i!=x[k]])\
             for k in range(n+1)])
 l10 = gen_l(10)
