@@ -9,11 +9,12 @@ def gen_l(n):
             for k in range(n+1)])
 l10 = gen_l(10)
 l20 = gen_l(20)
-xxx =  [x*0.1-5 for x in range(101)]
-xx =  [x*0.1-4 for x in range(81)]
-#print map(l20,xx)
+def f_range(s,d):
+    return [x*d-s for x in range(int(1+2*s/d))]
+xx =  f_range(4.0,0.01)
 plt.plot(xx,map(f,xx),'k',xx,map(l10,xx),'b',xx,map(l20,xx),'r')
 plt.show()
-
+print l10(4.8),f(4.8),l10(4.8)-f(4.8)
+print l20(4.8),f(4.8),l20(4.8)-f(4.8)
 
 
